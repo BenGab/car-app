@@ -2,14 +2,29 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Counter from './components/counterComponent';
+import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 
-function App() {
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#1976d2',
+    },
+    secondary: {
+      main: '#dc004e',
+    },
+  },
+});
+
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Counter />
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <div className="App">
+        <header className="App-header">
+          <Counter />
+        </header>
+      </div>
+    </ThemeProvider>
   );
 }
 
